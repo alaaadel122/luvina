@@ -22,7 +22,7 @@ export default function Login() {
       <h2 className="text-2xl text-blue-800">Login</h2>
       <form action={formAction} className="flex flex-col   justify-center items-center gap-4 w-full p-7">
         <input className="border-2 border-blue-900 rounded-2xl w-full p-1" placeholder="Enter Your Email" name='email' type="email"/>
-        <input className="border-2 border-blue-900  rounded-2xl w-full p-1" placeholder="Enter YourPassword" name='password' type="password"/>
+        {/* <input className="border-2 border-blue-900  rounded-2xl w-full p-1" placeholder="Enter YourPassword" name='password' type="password"/> */}
         <button disabled={isPending} className="rounded-2xl bg-blue-950 p-1 text-white w-full">
           {isPending ? 'Submitting' : 'Submit'}
         </button>
