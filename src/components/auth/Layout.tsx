@@ -4,13 +4,13 @@ import Login from "./ui/login";
 
 export default function Layout() {
   return (
-    <div className='min-h-screen grid grid-cols-2'>
+    <div className='min-h-screen grid grid-cols-2 '>
         <div className="h-screen">
             <img src={mainImg} className='w-full h-full object-center'/>
         </div>
-        <div className="flex items-center flex-col justify-center bg-gray-50">
-          <img src={logoType} className="absolute top-20"/>
-          <Login/>
+        <div className="flex items-center flex-col bg-gray-50 relative">
+          <img src={logoType} className="absolute top-30"/>
+          <Login />
         </div>
     </div>
   )
