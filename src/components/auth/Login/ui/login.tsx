@@ -1,4 +1,4 @@
-import { useActionState } from "react";
+import { startTransition, useActionState } from "react";
 import { Input } from "@/components/ui/input"
 import googleIcon from '@/assets/images/google.png'
 import facebookIcon from '@/assets/images/facebook.png'
@@ -9,23 +9,11 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Button } from "@/components/ui/button";
 import  Loading from "@/components/Loading";
 import {Link} from 'react-router-dom'
+import LoginAction from "../api/LoginAction";
+
 
 //asction function for useActionState
-async function loginAction(prevState: any, formDate: FormData) {
 
-  const email = formDate.get('email');
-  const password = formDate.get('password');
-  if (email === 'alaa@gmail.com' && password === '123') {
-    return {
-      success: true,
-      message: 'You signIn succeessfully'
-    }
-  }
-  return {
-    success: false,
-    message: 'Email or password is incorrect'
-  }
-}
 
 export default function Login() {
   const form = useForm({
@@ -33,13 +21,19 @@ export default function Login() {
     defaultValues: {
       email: '',
       password: ''
-    }
+    },
+    mode:'onChange'
   })
-  const [state, formAction, isPending] = useActionState(loginAction, null)
+  const [state, formAction, isPending] = useActionState(LoginAction, null)
   return (
     <div className="w-[50%] flex flex-col  absolute top-50">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(console.log)}>
+        <form onSubmit={form.handleSubmit((data)=>{
+         
+            startTransition(() => {
+              formAction(data);
+            });
+        })}>
           <FormField
             control={form.control}
             name="email"
@@ -51,7 +45,7 @@ export default function Login() {
                     type="email"
                     placeholder="Enter your email"
                     autoComplete="off"
-                    className="bg-white/20 border-white/20  placeholder-white/50 rounded-full"
+                    className="bg-white/20 border-white/20  placeholder-white/50 rounded-sm"
                     {...field}
                   />
                 </FormControl>
@@ -71,7 +65,7 @@ export default function Login() {
                   <Input
                     type="password"
                     placeholder="Enter your password"
-                    className="bg-white/20 border-white/20  placeholder-white/50 rounded-full"
+                    className="bg-white/20 border-white/20  placeholder-white/50 rounded-sm"
                     {...field}
                   />
                 </FormControl>
@@ -97,13 +91,13 @@ export default function Login() {
         <hr className="flex-1 border-border" />
       </div>
       <div className="flex flex-row justify-between">
-        <button className="flex items-center border-2 rounded-2xl px-2 py-2 hover:bg-gray-100 transition text-sm">
-          <img src={googleIcon} className="w-5 h-5 mr-3" alt="Google Icon" />
+        <button className="w-full flex items-center border-2 rounded-2xl px-2 py-2 hover:bg-gray-100 transition text-sm whitespace-nowrap">
+          <img src={googleIcon} className="w-5 h-5 mx-1" alt="Google Icon" />
           Sign in with Google
         </button>
 
-        <button className="flex items-center border-2 rounded-2xl px-2 py-2 hover:bg-gray-100 transition text-sm">
-          <img src={facebookIcon} className="w-5 h-5 mr-3 " alt="Facebook Icon" />
+        <button className=" w-full flex items-center border-2 rounded-2xl pe-5 py-2 hover:bg-gray-100 transition text-sm whitespace-nowrap">
+          <img src={facebookIcon} className="w-5 h-5 mx-1 " alt="Facebook Icon" />
           Sign in with Facebook
         </button>
       </div>

@@ -8,7 +8,7 @@ function App() {
   const routes = createBrowserRouter([
     {
       path: '/', element: <AuthLayout></AuthLayout>, children: [
-        { path: '/login', element: <Login></Login> },
+        { path: '/', element: <Login></Login> },
         { path: '/signup', element: <Signup></Signup> }
       ]
     },

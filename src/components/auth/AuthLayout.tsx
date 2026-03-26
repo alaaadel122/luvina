@@ -1,6 +1,6 @@
+import { Outlet } from "react-router";
 import mainImg from "../../assets/images/Rectangle 1.png";
 import logoType from "../../assets/images/logotype.png";
-import Login from "./Login/ui/login";
 
 export default function AuthLayout() {
   return (
@@ -10,7 +10,7 @@ export default function AuthLayout() {
         </div>
         <div className="flex items-center flex-col bg-gray-50 relative">
           <img src={logoType} className="absolute top-30"/>
-          <Login />
+         <Outlet/> 
         </div>
     </div>
   )
