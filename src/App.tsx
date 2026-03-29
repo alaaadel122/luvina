@@ -1,6 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import './App.css'
-import Layout from './components/auth/layout'
+import Login from './components/auth/Login/ui/login'
+import Signup from './components/auth/SignUp/ui/Signup'
+import AuthLayout from './components/auth/AuthLayout'
 
 function App() {
   const routes = createBrowserRouter([
