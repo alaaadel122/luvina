@@ -7,9 +7,9 @@ import { LoginSchema } from "@/lib/Schemas/loginSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
-import  Loading from "@/components/Loading";
+import  Loading from "@/components/shared-component/Loading";
 import {Link} from 'react-router-dom'
-import LoginAction from "../api/LoginAction";
+import LoginAction from "../actions/LoginAction";
 
 
 //asction function for useActionState

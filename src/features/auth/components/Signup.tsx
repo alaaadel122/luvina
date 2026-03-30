@@ -1,4 +1,4 @@
-import Loading from '@/components/Loading'
+import Loading from '@/components/shared-component/Loading'
 import { Button } from '@/components/ui/button'
 import { FormControl, FormField, FormItem, FormLabel, FormMessage, Form } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
@@ -9,7 +9,7 @@ import googleIcon from '@/assets/images/google.png'
 import facebookIcon from '@/assets/images/facebook.png'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { SignupSchema } from '@/lib/Schemas/signupSchema'
-import SignUpAction from '../api/SignUpAction'
+import SignUpAction from '../actions/SignUpAction'
 
 
 export default function Signup() {

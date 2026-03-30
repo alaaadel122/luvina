@@ -9,7 +9,6 @@ export default async function SignUpAction(prevState: any, data:SignupSchemaValu
     const rePassword = data.rePassword;
     const phone = data.phone;
 
-    console.log({ email, password }); 
 
     const res = await axios.post(
       "https://ecommerce.routemisr.com/api/v1/auth/signup",

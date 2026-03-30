@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
-import mainImg from "../../assets/images/Rectangle 1.png";
-import logoType from "../../assets/images/logotype.png";
+import mainImg from "../../../assets/images/Rectangle1.png";
+import logoType from "../../../assets/images/logotype.png";
 
 export default function AuthLayout() {
   return (
