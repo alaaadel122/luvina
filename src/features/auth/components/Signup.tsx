@@ -145,7 +145,7 @@ export default function Signup() {
             disabled={isPending}
             className="bg-main-btn text-white w-full mt-5 px-1 py-1 "
           >
-            {isPending ? 'Loading...' : "Submit"}
+            {isPending ? <Loading /> : "Submit"}
           </Button>
 
         </form>
