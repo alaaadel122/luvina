@@ -4,12 +4,11 @@ import { FormControl, FormField, FormItem, FormLabel, FormMessage, Form } from '
 import { Input } from '@/components/ui/input'
 import { startTransition, useActionState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router'
-import googleIcon from '@/assets/images/google.png'
-import facebookIcon from '@/assets/images/facebook.png'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { SignupSchema } from '@/lib/Schemas/signupSchema'
 import SignUpAction from '../actions/SignUpAction'
+import LinksAuth from '../_components/linksAuth'
 
 
 export default function Signup() {
@@ -150,24 +149,8 @@ export default function Signup() {
 
         </form>
       </Form>
-
-      <div className="flex flex-row justify-between mt-3">
-        <button className="w-full flex items-center border-2 rounded-2xl px-2 py-2 hover:bg-gray-100 transition text-sm whitespace-nowrap">
-          <img src={googleIcon} className="w-5 h-5 mx-1" alt="Google Icon" />
-          Sign in with Google
-        </button>
-
-        <button className=" w-full flex items-center border-2 rounded-2xl pe-5 py-2 hover:bg-gray-100 transition text-sm whitespace-nowrap">
-          <img src={facebookIcon} className="w-5 h-5 mx-1 " alt="Facebook Icon" />
-          Sign in with Facebook
-        </button>
-      </div>
-      <div className="flex items-center w-full mt-10 mx-auto">
-        <hr className="flex-1 border-border" />
-        <span className="px-3 text-sm font-light text-muted-foreground">OR</span>
-        <hr className="flex-1 border-border" />
-      </div>
-      <p className="text-center text-sm pt-4 text-gray-600 mb-5">Already have an account? <span className="text-black  font-bold" ><Link to={'/'}> SignIn </Link></span></p>
+            <LinksAuth type='signup'/>
+      
     </div>
   )
 }

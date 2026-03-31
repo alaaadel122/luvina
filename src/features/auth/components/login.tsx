@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import Loading from "@/components/shared-component/Loading";
 import { Link } from 'react-router-dom'
 import LoginAction from "../actions/LoginAction";
+import LinksAuth from "../_components/linksAuth";
 
 
 //asction function for useActionState
@@ -87,23 +88,7 @@ export default function Login() {
 
         </form>
       </Form>
-      <div className="flex items-center w-full mt-10 mx-auto">
-        <hr className="flex-1 border-border" />
-        <span className="px-3 text-sm font-light text-muted-foreground">OR</span>
-        <hr className="flex-1 border-border" />
-      </div>
-      <div className="flex flex-row justify-between">
-        <button className="w-full flex items-center border-2 rounded-2xl px-2 py-2 hover:bg-gray-100 transition text-sm whitespace-nowrap">
-          <img src={googleIcon} className="w-5 h-5 mx-1" alt="Google Icon" />
-          Sign in with Google
-        </button>
-
-        <button className=" w-full flex items-center border-2 rounded-2xl pe-5 py-2 hover:bg-gray-100 transition text-sm whitespace-nowrap">
-          <img src={facebookIcon} className="w-5 h-5 mx-1 " alt="Facebook Icon" />
-          Sign in with Facebook
-        </button>
-      </div>
-      <p className="text-center text-sm pt-4 text-gray-600">Don't Have an account ?<span className="text-black  font-bold" ><Link to={'/signup'}> Register </Link></span></p>
+     <LinksAuth type="login"/>
     </div>
   )
 }
