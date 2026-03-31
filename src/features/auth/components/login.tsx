@@ -1,14 +1,12 @@
 import { startTransition, useActionState } from "react";
 import { Input } from "@/components/ui/input"
-import googleIcon from '@/assets/images/google.png'
-import facebookIcon from '@/assets/images/facebook.png'
+
 import { useForm } from "react-hook-form";
 import { LoginSchema } from "@/lib/Schemas/loginSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import Loading from "@/components/shared-component/Loading";
-import { Link } from 'react-router-dom'
 import LoginAction from "../actions/LoginAction";
 import LinksAuth from "../_components/linksAuth";
 
