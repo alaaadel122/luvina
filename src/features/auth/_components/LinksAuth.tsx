@@ -7,13 +7,13 @@ type AuthSwitchProps = {
 export default function LinksAuth({ type }: AuthSwitchProps) {
      return (
           <>
-               <div className="flex flex-row justify-between mt-3">
-                    <button className="w-full flex items-center border-2 rounded-2xl px-2 py-2 hover:bg-gray-100 transition text-sm whitespace-nowrap">
+               <div className="flex flex-col lg:flex-row gap-3 w-full mt-5">
+                    <button  className="w-full  flex items-center justify-center border-2 rounded-2xl px-2 py-2 text-sm">
                          <img src={googleIcon} className="w-5 h-5 mx-1" alt="Google Icon" />
                          Sign in with Google
                     </button>
 
-                    <button className=" w-full flex items-center border-2 rounded-2xl pe-5 py-2 hover:bg-gray-100 transition text-sm whitespace-nowrap">
+                    <button  className="w-full flex items-center justify-center border-2 rounded-2xl px-2 py-2 text-sm">
                          <img src={facebookIcon} className="w-5 h-5 mx-1 " alt="Facebook Icon" />
                          Sign in with Facebook
                     </button>
