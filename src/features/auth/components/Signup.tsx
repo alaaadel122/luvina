@@ -2,7 +2,7 @@ import Loading from '@/components/shared-component/Loading'
 import { Button } from '@/components/ui/button'
 import { FormControl, FormField, FormItem, FormLabel, FormMessage, Form } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import React, { startTransition, useActionState } from 'react'
+import { startTransition, useActionState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router'
 import googleIcon from '@/assets/images/google.png'
@@ -28,12 +28,17 @@ export default function Signup() {
   return (
     <div className="w-[50%] flex flex-col  absolute top-40">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit((data) => {
+        <form
+          onSubmit={form.handleSubmit((data) => {
 
-          startTransition(() => {
-            formAction(data);
-          });
-        })}>
+            startTransition(() => {
+              formAction(data);
+            });
+          })}
+        >
+          {state && !state.ok && (
+            <p className="text-red-300 text-sm mb-3">{state.message}</p>
+          )}
           {/* full name feild */}
           <FormField
             control={form.control}

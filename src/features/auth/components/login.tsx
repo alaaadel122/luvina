@@ -7,8 +7,8 @@ import { LoginSchema } from "@/lib/Schemas/loginSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
-import  Loading from "@/components/shared-component/Loading";
-import {Link} from 'react-router-dom'
+import Loading from "@/components/shared-component/Loading";
+import { Link } from 'react-router-dom'
 import LoginAction from "../actions/LoginAction";
 
 
@@ -22,18 +22,21 @@ export default function Login() {
       email: '',
       password: ''
     },
-    mode:'onChange'
+    mode: 'onChange'
   })
   const [state, formAction, isPending] = useActionState(LoginAction, null)
+  console.log("====", state)
   return (
     <div className="w-[50%] flex flex-col  absolute top-50">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit((data)=>{
-         
-            startTransition(() => {
-              formAction(data);
-            });
+        <form onSubmit={form.handleSubmit((data) => {
+          startTransition(() => {
+            formAction(data);
+          });
         })}>
+          {state && !state.ok && (
+            <p className="text-red-500 text-sm mb-3">{state.message}</p>
+          )}
           <FormField
             control={form.control}
             name="email"
@@ -80,7 +83,7 @@ export default function Login() {
             disabled={isPending}
             className="bg-main-btn text-white w-full mt-5 px-1 py-1 "
           >
-            {isPending ? <Loading/> : "Submit"}
+            {isPending ? <Loading /> : "Submit"}
           </Button>
 
         </form>
