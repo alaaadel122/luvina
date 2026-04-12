@@ -8,7 +8,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Button } from "@/components/ui/button";
 import Loading from "@/components/shared-component/Loading";
 import LoginAction from "../actions/LoginAction";
-import LinksAuth from "../_components/linksAuth";
+import { Link } from "react-router";
+import LinksAuth from "../_components/LinksAuth";
 
 
 //asction function for useActionState
@@ -86,6 +87,7 @@ export default function Login() {
 
         </form>
       </Form>
+      <span className="text-gray-500 text-sm text-end pt-3"><Link to={'/forgetPassword'}>Forget Password?</Link></span>
      <LinksAuth type="login"/>
     </div>
   )

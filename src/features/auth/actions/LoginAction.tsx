@@ -14,7 +14,6 @@ export default async function LoginAction(
     const email = data.email;
     const password = data.password;
 
-    console.log({ email, password }); 
 
     const res = await axios.post(
       "https://ecommerce.routemisr.com/api/v1/auth/signin",
@@ -23,7 +22,6 @@ export default async function LoginAction(
         password,
       }
     );
-
     console.log("SUCCESS", res.data);
     return { ok: true };
   } catch (error: unknown) {
