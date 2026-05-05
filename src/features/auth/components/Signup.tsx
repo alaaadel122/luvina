@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { SignupSchema } from '@/lib/Schemas/signupSchema'
 import SignUpAction from '../actions/SignUpAction'
-import LinksAuth from '../_components/linksAuth'
+import LinksAuth from '../_components/LinksAuth'
 
 
 export default function Signup() {

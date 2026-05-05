@@ -1,4 +1,4 @@
-import { startTransition, useActionState } from "react";
+import { startTransition, useActionState, useEffect } from "react";
 import { Input } from "@/components/ui/input"
 
 import { useForm } from "react-hook-form";
@@ -8,7 +8,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Button } from "@/components/ui/button";
 import Loading from "@/components/shared-component/Loading";
 import LoginAction from "../actions/LoginAction";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import LinksAuth from "../_components/LinksAuth";
 
 
@@ -16,6 +16,8 @@ import LinksAuth from "../_components/LinksAuth";
 
 
 export default function Login() {
+  const navigate = useNavigate();
+
   const form = useForm({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
@@ -25,6 +27,11 @@ export default function Login() {
     mode: 'onChange'
   })
   const [state, formAction, isPending] = useActionState(LoginAction, null)
+  useEffect(() => {
+  if (state?.ok) {
+    navigate("/home");
+  }
+}, [state]);
   console.log("====", state)
   return (
     <div className="w-[50%] flex flex-col  absolute top-50">

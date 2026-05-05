@@ -11,16 +11,16 @@ const queryClient = new QueryClient()
 
 function App() {
   const routes = createBrowserRouter([
-    // {
-    //   path: '/', element: <AuthLayout></AuthLayout>, children: [
-    //     { path: '/', element: <Login></Login> },
-    //     { path: '/signup', element: <Signup></Signup> },
-    //     { path: '/forgetPassword', element: <ForgetPassword /> }
-    //   ],
-      
-    // },
     {
-      path:'/',element:<Home/>
+      path: '/', element: <AuthLayout></AuthLayout>, children: [
+        { path: '/', element: <Login></Login> },
+        { path: '/signup', element: <Signup></Signup> },
+        { path: '/forgetPassword', element: <ForgetPassword /> }
+      ],
+      
+    },
+    {
+      path:'/home',element:<Home/>
     }
 
   ])

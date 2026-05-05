@@ -1,14 +1,9 @@
 import {
      useQuery,
-     useMutation,
-     useQueryClient,
-     QueryClient,
-     QueryClientProvider,
 } from '@tanstack/react-query'
 import getProducts from './actions/getProducts'
 
 export default function Products() {
-     const queryClient = useQueryClient()
      const products = useQuery({ queryKey: ['prodcuts'], queryFn: getProducts })
      console.log("",products)
      return (
